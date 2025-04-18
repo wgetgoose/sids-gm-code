@@ -6,9 +6,13 @@ library(readxl)
 
 # import wb dataset
 sids_sectors <- read_excel("sids_sectors.xlsx")
-View(sids_sectors)
 
 #computing change in vars
+sids_var_names <- c("y1990", "y1991", "y1992", "y1993", "y1994", "y1995", "y1996", 
+                    "y1997", "y1998", "y1999", "y2000", "y2001", "y2002", 
+                    "y2003", "y2004", "y2005", "y2006", "y2007", "y2008", "y2009",       
+                    "y2010", "y2011", "y2012", "y2013", "y2014", "y2015", "y2016", "y2017",
+                    "y2018", "y2019", "y2020", "y2021", "y2022", "y2023")
 indices <- c(1:length(sids_var_names))
 output <- sids_sectors
 for (i in 2:length(sids_var_names)) {  
