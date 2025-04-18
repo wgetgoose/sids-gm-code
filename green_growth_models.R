@@ -2,6 +2,12 @@ library(tidyverse)
 library(ggplot2)
 library(dplyr)
 library(hrbrthemes)
+library(readxl)
+
+# import wb dataset
+sids_sectors <- read_excel("sids_sectors.xlsx")
+View(sids_sectors)
+
 #computing change in vars
 indices <- c(1:length(sids_var_names))
 output <- sids_sectors
