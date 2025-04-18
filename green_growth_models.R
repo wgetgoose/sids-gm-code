@@ -7,6 +7,9 @@ library(readxl)
 # import wb dataset
 sids_sectors <- read_excel("sids_sectors.xlsx")
 
+# prevent scientific notation for debugging
+options(scipen=999)
+
 # add "change_year" columns to data frame
 sids_var_names <- c("y1990", "y1991", "y1992", "y1993", "y1994", "y1995", "y1996", 
                     "y1997", "y1998", "y1999", "y2000", "y2001", "y2002", 
@@ -15,6 +18,7 @@ sids_var_names <- c("y1990", "y1991", "y1992", "y1993", "y1994", "y1995", "y1996
                     "y2018", "y2019", "y2020", "y2021", "y2022", "y2023")
 indices <- c(1:length(sids_var_names))
 output <- sids_sectors
+output$`Series Code` <- NULL
 # 2:length() because data is 1990-2023 but change is 1991-2023 (no change in first year of data)
 for (i in 2:length(sids_var_names)) {  
   output <- output %>%
